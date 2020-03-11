@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 dpToPixels(2, this));
 
         mCardShadowTransformer = new ShadowTransformer(mViewPager, mCardAdapter);
+        mCardShadowTransformer.setScale(0.2f);
         mFragmentCardShadowTransformer = new ShadowTransformer(mViewPager, mFragmentCardAdapter);
 
         mViewPager.setAdapter(mCardAdapter);
