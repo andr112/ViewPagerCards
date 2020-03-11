@@ -1,7 +1,7 @@
 package com.github.rubensousa.viewpagercards;
 
 
-import android.support.v7.widget.CardView;
+import androidx.cardview.widget.CardView;
 
 public interface CardAdapter {
 
