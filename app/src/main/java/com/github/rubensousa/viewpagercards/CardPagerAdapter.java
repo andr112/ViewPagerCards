@@ -76,4 +76,8 @@ public class CardPagerAdapter extends PagerAdapter implements CardAdapter {
         contentTextView.setText(item.getText());
     }
 
+    /*@Override
+    public float getPageWidth(int position) {
+        return 0.8f;
+    }*/
 }

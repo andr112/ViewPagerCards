@@ -1,5 +1,6 @@
 package com.github.rubensousa.viewpagercards;
 
+import android.util.Log;
 import android.view.View;
 
 import androidx.cardview.widget.CardView;
@@ -27,7 +28,7 @@ public class ShadowTransformer implements ViewPager.OnPageChangeListener, ViewPa
                 currentCard.animate().scaleY(1);
                 currentCard.animate().scaleX(1);
             }
-        }else if(!mScalingEnabled && enable){
+        } else if (!mScalingEnabled && enable) {
             // grow main card
             CardView currentCard = mAdapter.getCardViewAt(mViewPager.getCurrentItem());
             if (currentCard != null) {
@@ -63,12 +64,16 @@ public class ShadowTransformer implements ViewPager.OnPageChangeListener, ViewPa
             realCurrentPosition = position;
             realOffset = positionOffset;
         }
+        //Log.d("xixitest", "onPageScrolled position: " + position + " , positionOffset: " + positionOffset + " , mLastOffset: " + mLastOffset);
+        //Log.d("xixitest", "onPageScrolled realCurrentPosition: " + realCurrentPosition + " , nextPosition: " + nextPosition + " , realOffset: " + realOffset);
 
         // Avoid crash on overscroll
         if (nextPosition > mAdapter.getCount() - 1
                 || realCurrentPosition > mAdapter.getCount() - 1) {
             return;
         }
+        //Log.d("xixitest", "onPageScrolled goingLeft:" + goingLeft + " , baseElevation: " + baseElevation);
+        //Log.d("xixitest", "onPageScrolled realCurrentPosition: " + realCurrentPosition + " , nextPosition: " + nextPosition + " , realOffset: " + realOffset);
 
         CardView currentCard = mAdapter.getCardViewAt(realCurrentPosition);
 
@@ -79,6 +84,7 @@ public class ShadowTransformer implements ViewPager.OnPageChangeListener, ViewPa
                 currentCard.setScaleX((float) (1 + 0.1 * (1 - realOffset)));
                 currentCard.setScaleY((float) (1 + 0.1 * (1 - realOffset)));
             }
+
             currentCard.setCardElevation((baseElevation + baseElevation
                     * (CardAdapter.MAX_ELEVATION_FACTOR - 1) * (1 - realOffset)));
         }

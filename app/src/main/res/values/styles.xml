@@ -9,7 +9,7 @@
     </style>
 
     <style name="ButtonStyle" parent="Base.Widget.AppCompat.Button.Colored">
-        <item name="colorButtonNormal">@color/colorAccent</item>
+        <item name="colorButtonNormal">@android:color/holo_green_dark</item>
     </style>
 
 </resources>
